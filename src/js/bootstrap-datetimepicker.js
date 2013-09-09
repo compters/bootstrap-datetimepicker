@@ -55,8 +55,8 @@
             this.pickTime = options.pickTime;
             this.isInput = this.$element.is('input');
             this.component = false;
-            if (this.$element.find('.input-group'))
-                this.component = this.$element.find('.input-group-addon');
+            if (this.$element.siblings('.input-group'))
+                this.component = this.$element.siblings('.input-group-addon');
             this.format = options.format;
             if (!this.format) {
                 if (this.isInput) this.format = this.$element.data('format');
@@ -64,7 +64,7 @@
                 if (!this.format) this.format = 'MM/dd/yyyy' + (this.pickTime ? ' hh:mm' : '') + (this.pickSeconds ? ':ss' : '');
             }
             this._compileFormat();
-            if (this.component) {
+            if (this.component && this.component.length > 0) {
                 icon = this.component.find('span');
             }
             if (this.pickTime) {
@@ -262,8 +262,8 @@
 
         place: function () {
             var position = 'absolute';
-            var offset = this.component ? this.component.offset() : this.$element.offset();
-            this.width = this.component ? this.component.outerWidth() : this.$element.outerWidth();
+            var offset = this.component && this.component.length > 0 ? this.component.offset() : this.$element.offset();
+            this.width = this.component  && this.component.length > 0 ? this.component.outerWidth() : this.$element.outerWidth();
             offset.top = offset.top + this.height;
 
             var $window = $(window);
@@ -980,7 +980,8 @@
             if (this.isInput) {
                 this.$element.on({
                     'focus': $.proxy(this.show, this),
-                    'change': $.proxy(this.change, this)
+                    'change': $.proxy(this.change, this),
+                    'blur': $.proxy(this.hide, this)
                 });
                 if (this.options.maskInput) {
                     this.$element.on({

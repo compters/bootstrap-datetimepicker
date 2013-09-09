@@ -6,7 +6,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  */
-@import "variables.less";
+
+@colour-light: #333;
+@colour-lighter: #666;
+@btn-primary-bg: #222;
+@font-size-base: 14;
 
 .bootstrap-datetimepicker-widget
 {
@@ -110,14 +114,14 @@
         &.minute:hover,
         &.second:hover
         {
-            background: @gray-lighter;
+            background: @colour-lighter;
             cursor: pointer;
         }
 
         &.old,
         &.new
         {
-            color: @gray-light;
+            color: @colour-light;
         }
 
         &.active,
@@ -132,7 +136,7 @@
         &.disabled:hover
         {
             background: none;
-            color: @gray-light;
+            color: @colour-light;
             cursor: not-allowed;
         }
 
@@ -149,7 +153,7 @@
 
             &:hover
             {
-                background: @gray-lighter;
+                background: @colour-lighter;
             }
 
             &.active
@@ -161,14 +165,14 @@
 
             &.old
             {
-                color: @gray-light;
+                color: @colour-light;
             }
 
             &.disabled,
             &.disabled:hover
             {
                 background: none;
-                color: @gray-light;
+                color: @colour-light;
                 cursor: not-allowed;
             }
         }
@@ -191,7 +195,7 @@
         &.disabled:hover
         {
             background: none;
-            color: @gray-light;
+            color: @colour-light;
             cursor: not-allowed;
         }
     }
@@ -202,7 +206,7 @@
 
         &:hover
         {
-            background: @gray-lighter;
+            background: @colour-lighter;
         }
     }
     /*.dow {
